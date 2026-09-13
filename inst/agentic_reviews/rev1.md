@@ -31,17 +31,18 @@
 - `man/woven.Rd` details mention solver behavior that does not match current code/tests:
   - `man/woven.Rd` says V>=3 uses ALS
   - `tests/testthat/test-woven-api.R` expects unified dual solver
+  - `R/woven.R` routes fitting through `woven_mcca_dual`
 - Spelling error to fix:
   - `R/woven.R` includes the exact in-code typo "Nystrm projection" (missing "o")
 - Separate style standardization decision:
   - Across docs/comments, choose one canonical form (`Nystrom` ASCII or `Nyström` diacritic) and apply consistently (e.g., `README.md`, `R/woven.R`, `man/woven.Rd`).
 
-## Testing quality issues
+## Testing follow-up hypotheses (not yet confirmed)
 
-- Some important paths appear under-tested, including precompute reuse and scaling persistence in the scoring/prediction paths:
+- Candidate under-tested area: precompute reuse and scaling persistence in scoring/prediction paths:
   - Implementation paths: `R/woven.R` (`woven_precompute`, `woven_scores`, `woven_predict`)
   - Existing tests: `tests/testthat/test-woven-api.R`
-- Plot/summary edge-case coverage also appears limited:
+- Candidate under-tested area: plot/summary edge-case coverage:
   - Implementation paths: `R/woven.R` (`plot.woven`, `summary.woven`)
   - Existing tests: `tests/testthat/test-woven-api.R`
 
