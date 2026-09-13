@@ -28,7 +28,7 @@
 - `man/woven.Rd` details mention solver behavior that does not match current code/tests:
   - `man/woven.Rd` says V>=3 uses ALS
   - `tests/testthat/test-woven-api.R` expects unified dual solver
-- Minor terminology inconsistency/typo around “Nyström/Nystrm” in docs/comments.
+- Minor terminology inconsistency/typo around “Nyström/Nystrom” in docs/comments.
 
 ## Testing quality issues
 
