@@ -36,4 +36,4 @@
 
 ## Potential logic bug
 
-- `R/metrics.R` references `fit$Za_list` while fit stores `Z_anchors`, indicating a likely field-name mismatch bug in Nyström metric internals.
+- `R/metrics.R` references `fit$Za_list` while fit stores `Z_anchors`, indicating a likely field-name mismatch bug in Nyström metric internals (`R/metrics.R` vs fit object construction in `R/woven.R`).
