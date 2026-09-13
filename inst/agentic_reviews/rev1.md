@@ -46,4 +46,4 @@
   - Implementation paths: `R/woven.R` (`plot.woven`, `summary.woven`)
   - Existing tests: `tests/testthat/test-woven-api.R`
 
-- Candidate mismatch to verify with a focused test in `woven_nystrom_error` (`R/metrics.R`): check whether the fit-object field names accessed there match the fields produced during fit-object construction in `R/woven.R`; add this case under `tests/testthat/test-metrics.R`.
+- Open question for follow-up testing in `woven_nystrom_error` (`R/metrics.R`): verify that fit-object fields accessed there align with the fields produced during fit-object construction in `R/woven.R`; add this case under `tests/testthat/test-metrics.R`.
