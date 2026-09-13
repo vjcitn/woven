@@ -28,13 +28,13 @@
 
 ## Documentation consistency issues
 
-- `man/woven.Rd` details mention solver behavior that does not match current code/tests:
+- `man/woven.Rd` details mention solver behavior that does not match implementation/tests:
   - `man/woven.Rd` says V>=3 uses ALS
-  - `tests/testthat/test-woven-api.R` expects unified dual solver
   - `R/woven.R` routes fitting through `woven_mcca_dual`
-- Spelling error to fix:
+  - `tests/testthat/test-woven-api.R` expects unified dual solver
+  - Recommended resolution: update `man/woven.Rd` to document the unified `woven_mcca_dual` solver behavior.
+- Inconsistent spelling/terminology appears across docs/comments, including a misspelled form in source text:
   - `R/woven.R` includes a misspelled Nyström/Nystrom term in the projection description
-- Separate style standardization decision:
   - Across docs/comments, choose one canonical form (`Nystrom` ASCII or `Nyström` diacritic) and apply consistently (e.g., `README.md`, `R/woven.R`, `man/woven.Rd`).
 
 ## Follow-up TODOs (owner: package maintainer)
@@ -45,5 +45,4 @@
 - Candidate under-tested area: plot/summary edge-case coverage:
   - Implementation paths: `R/woven.R` (`plot.woven`, `summary.woven`)
   - Existing tests: `tests/testthat/test-woven-api.R`
-
 - Open question for follow-up testing in `woven_nystrom_error` (`R/metrics.R`): verify that fit-object fields accessed there align with the fields produced during fit-object construction in `R/woven.R`; add this case under `tests/testthat/test-metrics.R`.
