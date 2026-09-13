@@ -14,13 +14,16 @@
 
 - The package uses a custom **S3** object (`class = "woven"`) rather than Bioconductor-style **S4** containers/methods:
   - `R/woven.R` (class construction, `print.woven`, `summary.woven`, `plot.woven`)
-- Inputs are plain matrix lists, not interoperable Bioconductor containers (e.g., `SummarizedExperiment`/`MultiAssayExperiment`).
-- Parallelization uses `parallel::mclapply`, which is not ideal for Bioconductor cross-platform expectations (Windows):
+- Inputs are plain matrix lists, not interoperable Bioconductor containers (e.g., `SummarizedExperiment`/`MultiAssayExperiment`):
   - `R/woven.R`
+- Parallelization uses `parallel::mclapply`, which is not ideal for Bioconductor cross-platform expectations (Windows):
+  - `R/woven.R` (`woven_precompute`)
 
 ## S4 usage assessment
 
-- No `setClass`, `setMethod`, or `setGeneric` usage found in package code.
+- No `setClass`, `setMethod`, or `setGeneric` usage found in package code:
+  - `R/`
+  - `NAMESPACE`
 - So S4 usage is currently **absent**, not just inconsistent.
 
 ## Documentation consistency issues
@@ -28,12 +31,19 @@
 - `man/woven.Rd` details mention solver behavior that does not match current code/tests:
   - `man/woven.Rd` says V>=3 uses ALS
   - `tests/testthat/test-woven-api.R` expects unified dual solver
-- Minor terminology inconsistency/typo around “Nyström/Nystrom” in docs/comments.
+- Terminology inconsistency around “Nyström/Nystrom” appears in docs/comments:
+  - `R/woven.R` ("Nystrm projection")
+  - `README.md` ("Nystrom")
 
 ## Testing quality issues
 
-- Some important paths are untested (precompute reuse, scaling persistence, plot/summary edge cases, multi-modality >2 behavior).
+- Some important paths appear under-tested, including precompute reuse and scaling persistence in the scoring/prediction paths:
+  - Implementation paths: `R/woven.R` (`woven_precompute`, `woven_scores`, `woven_predict`)
+  - Existing tests: `tests/testthat/test-woven-api.R`
+- Plot/summary edge-case coverage also appears limited:
+  - Implementation paths: `R/woven.R` (`plot.woven`, `summary.woven`)
+  - Existing tests: `tests/testthat/test-woven-api.R`
 
-## Potential logic bug
+## Potential logic bug (inferred)
 
-- `R/metrics.R` references `fit$Za_list` while fit stores `Z_anchors`, indicating a likely field-name mismatch bug in Nyström metric internals (`R/metrics.R` vs fit object construction in `R/woven.R`).
+- `R/metrics.R` references `fit$Za_list`, while the fit object built in `R/woven.R` stores `Z_anchors = raw$Za_list`; this suggests a likely field-name mismatch in Nyström metric internals.
