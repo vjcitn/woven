@@ -48,4 +48,4 @@
 
 ## Follow-up hypothesis (not yet confirmed)
 
-- Candidate mismatch to verify with a focused test in `woven_nystrom_error` (`R/metrics.R`): check whether the fit-object field names accessed there match the fields produced during fit-object construction in `R/woven.R`.
+- Candidate mismatch to verify with a focused test in `woven_nystrom_error` (`R/metrics.R`): check whether the fit-object field names accessed there match the fields produced during fit-object construction in `R/woven.R`; add this case under `tests/testthat/test-metrics.R`.
