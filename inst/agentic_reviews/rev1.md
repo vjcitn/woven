@@ -47,4 +47,4 @@
 
 ## Follow-up hypothesis (not yet confirmed)
 
-- Candidate mismatch to verify with a focused test in `woven_nystrom_error` (`R/metrics.R`): it references `fit$Za_list`, while the fit object in `R/woven.R` stores `Z_anchors = raw$Za_list`.
+- Candidate mismatch to verify with a focused test in `woven_nystrom_error` (`R/metrics.R`): check whether the fit-object field names accessed there match the fields produced during fit-object construction in `R/woven.R`.
