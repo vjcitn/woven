@@ -32,9 +32,9 @@
   - `man/woven.Rd` says V>=3 uses ALS
   - `R/woven.R` routes fitting through `woven_mcca_dual`
   - `tests/testthat/test-woven-api.R` expects unified dual solver
-  - Recommended resolution: update `man/woven.Rd` to document the unified `woven_mcca_dual` solver behavior.
+  - Recommended resolution (if current implementation is intended): update `man/woven.Rd` to document the unified `woven_mcca_dual` solver behavior; otherwise align code/tests to documented behavior.
 - Inconsistent spelling/terminology appears across docs/comments, including a misspelled form in source text:
-  - `R/woven.R` includes a misspelled Nyström/Nystrom term in the projection description
+  - `R/woven.R` includes misspelled form `Nystrm` in the projection description
   - Across docs/comments, choose one canonical form (`Nystrom` ASCII or `Nyström` diacritic) and apply consistently (e.g., `README.md`, `R/woven.R`, `man/woven.Rd`).
 
 ## Follow-up TODOs (owner: package maintainer)
