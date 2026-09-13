@@ -37,7 +37,7 @@
 - Separate style standardization decision:
   - Across docs/comments, choose one canonical form (`Nystrom` ASCII or `Nyström` diacritic) and apply consistently (e.g., `README.md`, `R/woven.R`, `man/woven.Rd`).
 
-## Testing follow-up hypotheses (not yet confirmed)
+## Follow-up TODOs (owner: package maintainer)
 
 - Candidate under-tested area: precompute reuse and scaling persistence in scoring/prediction paths:
   - Implementation paths: `R/woven.R` (`woven_precompute`, `woven_scores`, `woven_predict`)
