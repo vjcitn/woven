@@ -33,7 +33,7 @@
   - `tests/testthat/test-woven-api.R` expects unified dual solver
   - `R/woven.R` routes fitting through `woven_mcca_dual`
 - Spelling error to fix:
-  - `R/woven.R` includes the exact in-code typo "Nystrm projection" (missing "o")
+  - `R/woven.R` includes a misspelled Nyström/Nystrom term in the projection description
 - Separate style standardization decision:
   - Across docs/comments, choose one canonical form (`Nystrom` ASCII or `Nyström` diacritic) and apply consistently (e.g., `README.md`, `R/woven.R`, `man/woven.Rd`).
 
