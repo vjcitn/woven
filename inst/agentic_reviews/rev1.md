@@ -33,5 +33,7 @@
 ## Testing quality issues
 
 - Some important paths are untested (precompute reuse, scaling persistence, plot/summary edge cases, multi-modality >2 behavior).
-- Potential bug path appears untested in Nyström metric internals:
-  - `R/metrics.R` references `fit$Za_list` while fit stores `Z_anchors`.
+
+## Potential logic bug
+
+- `R/metrics.R` references `fit$Za_list` while fit stores `Z_anchors`, indicating a likely field-name mismatch bug in Nyström metric internals.
