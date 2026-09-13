@@ -31,9 +31,10 @@
 - `man/woven.Rd` details mention solver behavior that does not match current code/tests:
   - `man/woven.Rd` says V>=3 uses ALS
   - `tests/testthat/test-woven-api.R` expects unified dual solver
-- Terminology inconsistency around Nyström/Nystrom appears in docs/comments; canonicalize to **Nystrom** (ASCII) throughout:
+- Spelling error to fix:
   - `R/woven.R` includes the exact in-code typo "Nystrm projection" (missing "o")
-  - `README.md` uses "Nystrom"
+- Separate style standardization decision:
+  - Across docs/comments, choose one canonical form (`Nystrom` ASCII or `Nyström` diacritic) and apply consistently (e.g., `README.md`, `R/woven.R`, `man/woven.Rd`).
 
 ## Testing quality issues
 
@@ -46,4 +47,4 @@
 
 ## Follow-up hypothesis (not yet confirmed)
 
-- Candidate mismatch to verify with a focused test: `R/metrics.R` references `fit$Za_list`, while the fit object in `R/woven.R` stores `Z_anchors = raw$Za_list`.
+- Candidate mismatch to verify with a focused test in `woven_nystrom_error` (`R/metrics.R`): it references `fit$Za_list`, while the fit object in `R/woven.R` stores `Z_anchors = raw$Za_list`.
